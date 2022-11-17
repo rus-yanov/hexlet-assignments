@@ -7,10 +7,11 @@ import java.util.List;
 class App {
 
     public static void main(String[] args) {
-        System.out.println(App.scrabble("rkqodlw", "world"));
-        System.out.println(App.scrabble("ajv", "java"));
-        System.out.println(App.scrabble("avjafff", "JaVa"));
-        System.out.println(App.scrabble("", "hexlet"));
+        System.out.println(App.scrabble("rkqodlw", "woRld"));
+        System.out.println(App.scrabble("begsdhhtsexoult", "Hexlet"));
+        System.out.println(App.scrabble("thlxertwq", "hexlet"));
+        System.out.println(App.scrabble("jvayu", "java"));
+        System.out.println(App.scrabble("", "java"));
     }
 
     public static boolean scrabble(String symbols, String word) {
@@ -26,7 +27,19 @@ class App {
             wordList.add(word.toLowerCase().charAt(j));
         }
 
-        return wordList.containsAll(listOfSymbols);
+        // wrong way to check if listOfSymbols fully contains wordList
+        // return listOfSymbols.containsAll(wordList);
+        int s = 0;
+        int counter =0;
+        while (s < wordList.size()) {
+            if (listOfSymbols.contains(wordList.get(s))) {
+                listOfSymbols.remove(wordList.get(s));
+                counter++;
+            }
+            s++;
+        }
+
+        return counter == wordList.size();
     }
 }
 //END
