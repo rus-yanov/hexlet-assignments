@@ -13,7 +13,7 @@ public class Flat implements Home {
     }
 
     public double getArea() {
-        return area;
+        return area + getBalconyArea();
     }
 
     public double getBalconyArea() {

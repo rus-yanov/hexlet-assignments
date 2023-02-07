@@ -11,7 +11,7 @@ public class App {
             return result;
         }
 
-        return houses.stream().sorted(Home::compareTo).map(Home::toString).limit(n).collect(Collectors.toList());
+        return houses.stream().sorted(Home::compareTo).map(Home::toString).limit(num).collect(Collectors.toList());
 
     }
 }
