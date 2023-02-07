@@ -1,31 +1,31 @@
 package exercise;
 
 // BEGIN
-/*public class ReversedSequence implements CharSequense {
-    String text;
+public class ReversedSequence implements CharSequence {
 
-    public ReversedSequence(String text) {
-        this.text = text;
+    String reversString;
+
+    public ReversedSequence(String str) {
+        this.reversString = new StringBuilder(str).reverse().toString();
     }
 
-    public String getText() {
-        return text;
+    @Override
+    public int length() {
+        return this.reversString.length();
+    }
+
+    @Override
+    public char charAt(int i) {
+        return this.reversString.charAt(i);
+    }
+
+    @Override
+    public CharSequence subSequence(int i, int i1) {
+        return this.reversString.subSequence(i, i1);
     }
 
     public String toString() {
-        String result = "";
-        for (int i = text.length() - 1; i < 0; i--) {
-            result += text.charAt(i);
-        }
-    }
-
-    public String toString() {
-        String result = "";
-        for (int i = text.length() - 1; i < 0; i--) {
-            result += text.charAt(i);
-        }
+        return this.reversString;
     }
 }
-
- */
 // END
