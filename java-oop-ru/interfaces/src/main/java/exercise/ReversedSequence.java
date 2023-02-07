@@ -1,9 +1,7 @@
 package exercise;
 
-import  java.lang*;
-
 // BEGIN
-public class ReversedSequence implements CharSequense {
+/*public class ReversedSequence implements CharSequense {
     String text;
 
     public ReversedSequence(String text) {
@@ -28,4 +26,6 @@ public class ReversedSequence implements CharSequense {
         }
     }
 }
+
+ */
 // END
