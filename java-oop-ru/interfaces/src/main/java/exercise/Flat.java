@@ -25,7 +25,7 @@ public class Flat implements Home {
     }
 
     public String toString() {
-        String result = "Квартира площадью " + area + " на " + floor + " этаже";
+        String result = "Квартира площадью " + this.getArea() + " на " + this.getFloor() + " этаже";
         return result;
     }
 

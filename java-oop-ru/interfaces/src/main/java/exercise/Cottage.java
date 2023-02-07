@@ -19,7 +19,7 @@ public class Cottage implements Home{
     }
 
     public String toString() {
-        String result = floorCount + " этажный коттедж площадью " + area + " метров";
+        String result = this.getFloorCount() + " этажный коттедж площадью " + this.getArea() + " метров";
         return result;
     }
 
