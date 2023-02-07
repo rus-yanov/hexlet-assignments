@@ -7,11 +7,12 @@ import java.util.stream.Collectors;
 public class App {
     public static List<String> buildApartmentList(List<Home> list, int num) {
         List<String> result = new ArrayList<>();
-        for (int i = 0; i < num; i++) {
-            result.add(list.get(i).toString());
+        if (appartments.size() == 0) {
+            return result;
         }
 
-        return result;
+        return appartments.stream().sorted(Home::compareTo).map(Home::toString).limit(n).collect(Collectors.toList());
+
     }
 }
 // END
