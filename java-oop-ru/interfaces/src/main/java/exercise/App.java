@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 // BEGIN
 public class App {
-    public static List<String> buildApartmentList(List<Home> houses, int num) {
+    public static List<String> buildApartmentsList(List<Home> houses, int num) {
         List<String> result = new ArrayList<>();
         if (houses.size() == 0) {
             return result;
