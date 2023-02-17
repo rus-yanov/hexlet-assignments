@@ -8,12 +8,13 @@ import java.util.HashMap;
 // BEGIN
 public class App {
     public static void swapKeyValue(KeyValueStorage storage) {
-        Map<String, String> rev = new HashMap<>();
         Map<String, String> map = storage.toMap();
-        for (Map.Entry <String, String> entry : map.entrySet()) {
-            rev.put(entry.getValue(), entry.getKey());
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            String value = entry.getValue();
+            String key = entry.getKey();
+            map.put(value, key);
+            map.remove(key);
         }
-        storage = new InMemoryKV(rev);
     }
 }
 // END
