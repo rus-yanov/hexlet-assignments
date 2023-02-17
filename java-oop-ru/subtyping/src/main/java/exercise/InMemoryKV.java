@@ -27,11 +27,7 @@ public class InMemoryKV implements KeyValueStorage {
 
     @Override
     public String get(String key, String defaultValue) {
-        if (this.map.containsKey(key)) {
-            return this.map.get(key);
-        } else {
-            return defaultValue;
-        }
+        return this.map.getOrDefault(key, defaultValue);
     }
 
     @Override
