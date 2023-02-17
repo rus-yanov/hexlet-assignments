@@ -20,7 +20,7 @@ public class InMemoryKV implements KeyValueStorage {
     }
 
     public void unset(String key) {
-        this.map.remove(key)
+        this.map.remove(key);
     }
 
     public String get(String key, String defaultValue) {

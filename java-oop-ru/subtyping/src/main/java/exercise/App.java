@@ -11,9 +11,9 @@ public class App {
         Map<String, String> rev = new HashMap<>();
         Map<String, String> map = storage.toMap();
         for (Map.Entry <String, String> entry : map.entrySet()) {
-            rev.put(entry.getValue(), entry.getKey())
+            rev.put(entry.getValue(), entry.getKey());
         }
-        storage = new InMemoryKV(rev)
+        storage = new InMemoryKV(rev);
     }
 }
 // END
