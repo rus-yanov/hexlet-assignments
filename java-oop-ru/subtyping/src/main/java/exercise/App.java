@@ -10,7 +10,7 @@ public class App {
     public static void swapKeyValue(KeyValueStorage storage) {
         Set<String> keys = new HashSet<>(storage.toMap().keySet());
         for (String key : keys) {
-            storage.set(data.get(key, ""), key);
+            storage.set(storage.get(key, ""), key);
             storage.unset(key);
         }
     }
