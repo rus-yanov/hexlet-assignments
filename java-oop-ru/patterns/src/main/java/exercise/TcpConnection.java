@@ -1,12 +1,13 @@
 package exercise;
-import java.util.List;
-import java.util.ArrayList;
+//import java.util.List;
+//import java.util.ArrayList;
 
 // BEGIN
 import exercise.connections.Disconnected;
 import exercise.connections.Connection;
+import exercise.connections.Connected;
 
-public class TcpConnection {
+public class TcpConnection implements Connection{
 
     private String str;
     private int num;
