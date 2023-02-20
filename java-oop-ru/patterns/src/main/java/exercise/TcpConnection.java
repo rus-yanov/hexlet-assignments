@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import exercise.connections.Disconnected;
 import exercise.connections.Connection;
 
-public  class TcpConnection {
+public class TcpConnection {
 
     private Connection connection;
 
