@@ -23,7 +23,7 @@ public class TcpConnection implements Connection{
         this.connection = connection;
     }
 
-    public String getCurrentState() {
+    public Connection getCurrentState() {
         return this.connection;
     }
 
