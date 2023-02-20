@@ -5,16 +5,15 @@ package exercise;
 // BEGIN
 import exercise.connections.Disconnected;
 import exercise.connections.Connection;
-import exercise.connections.Connected;
 
-public class TcpConnection implements Connection{
+public class TcpConnection implements Connection {
 
-    private String str;
+    private String ip;
     private int num;
     private Connection connection;
 
-    public TcpConnection(String str, int num) {
-        this.str = str;
+    public TcpConnection(String ip, int num) {
+        this.ip = ip;
         this.num = num;
         this.connection = new Disconnected(this);
     }
