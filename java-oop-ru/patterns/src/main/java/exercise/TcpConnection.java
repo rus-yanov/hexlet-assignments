@@ -10,7 +10,7 @@ public  class TcpConnection {
 
     private Connection connection;
 
-    public TcpConnection {
+    public TcpConnection() {
         this.connection = new Disconnected(this);
     }
 
