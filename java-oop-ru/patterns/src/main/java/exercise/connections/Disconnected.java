@@ -13,7 +13,7 @@ public class Disconnected implements Connection {
     }
 
     @Override
-    public Connection getCurrentState() {
+    public String getCurrentState() {
         return state;
     }
 
