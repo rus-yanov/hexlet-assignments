@@ -18,12 +18,29 @@ public class TcpConnection {
         this.connection = new Disconnected(this);
     }
 
-    public Connection getCurrentState() {
-        return connection;
-    }
-
     public void setConnection(Connection connection) {
         this.connection = connection;
+    }
+
+    @Override
+    public void connect() {
+        this.connectionState.connect();
+    }
+
+    @Override
+    public void disconnect() {
+        this.connectionState.disconnect();
+
+    }
+
+    @Override
+    public void write(String data) {
+        this.connectionState.write(data);
+    }
+
+    @Override
+    public String getCurrentState() {
+        return this.connectionState.getCurrentState();
     }
 }
 // END
