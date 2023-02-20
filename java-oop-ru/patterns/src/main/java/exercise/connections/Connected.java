@@ -31,7 +31,7 @@ public class Connected implements Connection {
     public void disconnect() {
         TcpConnection con = this.connection;
         con.setConnection(new Disconnected(con));
-        state = "disconnected"
+        state = "disconnected";
         System.out.println(state);
     }
 }
