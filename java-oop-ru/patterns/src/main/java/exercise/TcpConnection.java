@@ -22,24 +22,24 @@ public class TcpConnection implements Connection {
         this.connection = connection;
     }
 
+    @Override
     public Connection getCurrentState() {
-        return connection;
+        return connection.getCurrentState();
     }
 
     @Override
     public void connect() {
-        this.connection.connect();
+        connection.connect();
     }
 
     @Override
     public void disconnect() {
-        this.connection.disconnect();
-
+        connection.disconnect();
     }
 
     @Override
     public void write(String str) {
-        this.connection.write(str);
+        connection.write(str);
     }
 }
 // END

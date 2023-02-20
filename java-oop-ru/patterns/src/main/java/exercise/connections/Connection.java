@@ -5,5 +5,6 @@ public interface Connection {
     void connect();
     void disconnect();
     void write(String str);
+    String getCurrentState();
     // END
 }
