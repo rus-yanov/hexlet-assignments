@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 // BEGIN
 import exercise.connections.Disconnected;
-import exercise.connections.Conection;
+import exercise.connections.Connection;
 
 public  class TcpConnection {
 

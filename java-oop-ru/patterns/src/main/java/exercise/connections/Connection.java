@@ -4,6 +4,6 @@ public interface Connection {
     // BEGIN
     void connect();
     void disconnect();
-    void write();
+    void write(String str);
     // END
 }
