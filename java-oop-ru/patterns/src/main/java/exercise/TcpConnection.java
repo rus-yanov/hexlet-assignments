@@ -8,9 +8,13 @@ import exercise.connections.Connection;
 
 public class TcpConnection {
 
+    private String str;
+    private int num;
     private Connection connection;
 
-    public TcpConnection() {
+    public TcpConnection(String str, int num) {
+        this.str = str;
+        this.num = num;
         this.connection = new Disconnected(this);
     }
 
