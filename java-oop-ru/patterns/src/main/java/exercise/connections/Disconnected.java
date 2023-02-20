@@ -6,7 +6,7 @@ import exercise.TcpConnection;
 public class Disconnected implements Connection {
 
     private TcpConnection connection;
-    private String state;
+    private String state = "disconnected";
 
     public Disconnected(TcpConnection connection) {
         this.connection = connection;
@@ -21,7 +21,6 @@ public class Disconnected implements Connection {
     public void connect() {
         TcpConnection con = this.connection;
         con.setConnection(new Connected(con));
-        state = "connected";
         System.out.println("connected");
     }
 
