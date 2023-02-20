@@ -6,9 +6,15 @@ import exercise.TcpConnection;
 public class Connected implements Connection {
 
     private TcpConnection connection;
+    private String state;
 
     public Connected(TcpConnection connection) {
         this.connection = connection;
+    }
+
+    @Override
+    public String getCurrentState() {
+        return state;
     }
 
     @Override
@@ -25,7 +31,8 @@ public class Connected implements Connection {
     public void disconnect() {
         TcpConnection con = this.connection;
         con.setConnection(new Disconnected(con));
-        System.out.println("disconnected");
+        state = "disconnected"
+        System.out.println(state);
     }
 }
 // END
