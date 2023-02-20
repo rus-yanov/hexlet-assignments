@@ -23,8 +23,8 @@ public class Connected implements Connection {
 
     @Override
     public void disconnect() {
-        TcpConnection connection = this.connection;
-        connection.setConnection(new Disconnected(connection));
+        TcpConnection con = this.connection;
+        con.setConnection(new Disconnected(con));
         System.out.println("disconnected");
     }
 }
