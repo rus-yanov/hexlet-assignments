@@ -23,7 +23,7 @@ public class TcpConnection implements Connection {
     }
 
     public Connection getCurrentState() {
-        return this.connection;
+        return connection;
     }
 
     @Override
