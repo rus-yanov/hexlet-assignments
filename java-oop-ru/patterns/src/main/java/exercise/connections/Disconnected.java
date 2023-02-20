@@ -14,7 +14,7 @@ public class Disconnected implements Connection {
     @Override
     public void connect() {
         TcpConnection con = this.connection;
-        con.setConnection(new Connected(con);
+        con.setConnection(new Connected(con));
         System.out.println("connected");
     }
 
