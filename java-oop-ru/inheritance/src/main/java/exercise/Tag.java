@@ -8,11 +8,11 @@ import java.util.HashMap;
 
 class Tag {
     private String data;
-    private Map<String, String> map = new HashMap<>();
+    private Map<String, String> map;
 
     Tag(String inputData, Map<String, String> inputMap) {
         this.data = inputData;
-        map.putAll(inputMap);
+        this.map = inputMap;
     }
 
     public String getData() {

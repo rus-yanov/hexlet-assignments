@@ -2,20 +2,19 @@ package exercise;
 
 import java.util.Map;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 // BEGIN
 class PairedTag extends Tag {
 
     private String text;
-    private List<Tag> tags = new ArrayList<>();
+    private List<Tag> tags;
 
     PairedTag(String data, Map<String, String> map,
               String inputText, List<Tag> inputTags) {
         super(data, map);
         this.text = inputText;
-        tags.addAll(inputTags);
+        this.tags = inputTags;
     }
 
     public String getText() {
