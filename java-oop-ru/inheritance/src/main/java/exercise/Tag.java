@@ -24,11 +24,11 @@ class Tag {
     }
 
     public String toString() {
-        String init = "<" + data + " ";
+        String init = "<" + data;
         String end = ">";
 
         return map.entrySet().stream()
-                .map(entry -> entry.getKey() + "=\"" + entry.getValue() + "\"")
+                .map(entry -> " " + entry.getKey() + "=\"" + entry.getValue() + "\"")
                 .collect(Collectors.joining(" ", init, end));
     }
 }
