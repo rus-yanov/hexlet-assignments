@@ -10,7 +10,7 @@ class Tag {
     private String data;
     private Map<String, String> map = new HashMap<>();
 
-    public Tag(String inputData, Map<String, String> inputMap) {
+    Tag(String inputData, Map<String, String> inputMap) {
         this.data = inputData;
         map.putAll(inputMap);
     }

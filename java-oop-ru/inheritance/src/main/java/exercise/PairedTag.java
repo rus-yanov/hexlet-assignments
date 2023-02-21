@@ -6,15 +6,13 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 // BEGIN
-class PairedTag extends Tag{
+class PairedTag extends Tag {
 
     private String text;
     private List<Tag> tags = new ArrayList<>();
 
-    public SingleTag (String data,
-                      Map<String, String> map,
-                      String inputText,
-                      List<Tag> inputTags) {
+    PairedTag(String data, Map<String, String> map,
+              String inputText, List<Tag> inputTags) {
         super(data, map);
         this.text = inputText;
         tags.putAll(inputTags);
