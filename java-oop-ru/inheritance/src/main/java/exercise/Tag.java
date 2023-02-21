@@ -4,8 +4,6 @@ import java.util.stream.Collectors;
 import java.util.Map;
 
 // BEGIN
-import java.util.HashMap;
-
 class Tag {
     private String data;
     private Map<String, String> map;
