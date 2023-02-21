@@ -28,7 +28,7 @@ class PairedTag extends Tag {
     @Override
     public String toString() {
         String init = super.toString() + text;
-        String end = "/" + super.getData() + ">";
+        String end = "</" + super.getData() + ">";
         return tags.stream()
                 .map(e -> e.toString())
                 .collect(Collectors.joining("", init, end));
