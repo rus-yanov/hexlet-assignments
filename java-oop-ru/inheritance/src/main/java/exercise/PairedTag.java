@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 // BEGIN
-public class PairedTag extends Tag{
+class PairedTag extends Tag{
 
     private String text;
     private List<Tag> tags = new ArrayList<>();
