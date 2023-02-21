@@ -15,7 +15,7 @@ class PairedTag extends Tag {
               String inputText, List<Tag> inputTags) {
         super(data, map);
         this.text = inputText;
-        tags.putAll(inputTags);
+        tags.addAll(inputTags);
     }
 
     public String getText() {
@@ -31,7 +31,7 @@ class PairedTag extends Tag {
         String init = super.toString() + text;
         String end = "/" + super.getData() + ">";
         return tags.stream()
-                .map(e)
+                .map(e -> e)
                 .collect(Collectors.joining("", init, end));
 
         /*
