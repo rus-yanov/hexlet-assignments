@@ -28,7 +28,7 @@ class Tag {
         String end = ">";
 
         return map.entrySet().stream()
-                .map(entry -> " " + entry.getKey() + "=\"" + entry.getValue() + "\"")
+                .map(entry -> entry.getKey() + "=\"" + entry.getValue() + "\"")
                 .collect(Collectors.joining(" ", init, end));
     }
 }
