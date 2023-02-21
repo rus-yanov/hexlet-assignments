@@ -6,7 +6,7 @@ import java.util.Map;
 // BEGIN
 import java.util.HashMap;
 
-public abstract class Tag {
+class Tag {
     private String data;
     private Map<String, String> map = new HashMap<>();
 
