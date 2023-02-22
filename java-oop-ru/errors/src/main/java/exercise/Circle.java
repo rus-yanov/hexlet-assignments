@@ -17,7 +17,7 @@ class Circle {
     public double getSquare() throws NegativeRadiusException{
 
         if (rad < 0) {
-            throw new NegativeRadiusException("Radius less than zero")
+            throw new NegativeRadiusException("Radius less than zero");
         }
         return Math.PI * Math.pow(rad, 2);
     }
