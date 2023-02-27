@@ -16,9 +16,10 @@ class Validator {
                     if (f.get(address) == null) result.add(f.getName());
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
+                }
             }
         }
-            return result;
+        return result;
     }
 }
 // END
