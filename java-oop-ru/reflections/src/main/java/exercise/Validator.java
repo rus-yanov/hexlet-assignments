@@ -46,14 +46,15 @@ class Validator {
             if (minLength != null) {
                 try {
                     f.setAccessible(true);
-                    if ((f.get(address) == null) || ((String) f.get(address)).length() < minLength.minLength()) {
+                    if ((f.get(address) == null) ||
+                            ((String) f.get(address)).length() < minLength.minLength()) {
                         errors.add("length less than " + minLength.minLength());
                     }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
-                if (!errors.isEmpty()) result.put(f.getName(), new ArrayList<>(errors));
             }
+            if (!errors.isEmpty()) result.put(f.getName(), new ArrayList<>(errors));
         }
         return result;
     }
