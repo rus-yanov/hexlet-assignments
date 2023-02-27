@@ -54,8 +54,8 @@ class Validator {
                 }
                 if (!errors.isEmpty()) result.put(f.getName(), new ArrayList<>(errors));
             }
-            return result;
         }
+        return result;
     }
 }
 // END
