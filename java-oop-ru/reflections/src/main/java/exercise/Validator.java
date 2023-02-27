@@ -43,7 +43,7 @@ class Validator {
             }
 
             MinLength minLength = f.getAnnotation(MinLength.class);
-            if (MinLength != null) {
+            if (minLength != null) {
                 try {
                     f.setAccessible(true);
                     if ((f.get(address) == null) || ((String) f.get(address)).length() < minLength.minLength()) {
