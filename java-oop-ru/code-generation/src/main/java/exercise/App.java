@@ -21,7 +21,7 @@ class App {
     public static Car extract(Path path) {
         String json;
         try {
-            String json = Files.readString(path);
+            json = Files.readString(path);
         } catch (IOException ex) {
             System.out.print("Invalid Path");
         }
