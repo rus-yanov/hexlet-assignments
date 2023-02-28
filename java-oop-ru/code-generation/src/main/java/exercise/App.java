@@ -21,7 +21,7 @@ class App {
 
     public static Car extract(Path path) {
         String json;
-        Car result;
+        Car result = new Car();
         try {
             json = Files.readString(path);
             result = Car.unserialize(json);
