@@ -24,9 +24,13 @@ class Car {
         return result;
     }
 
-    public static Car unserialize(String json) throws IOException {
+    public static Car unserialize(String json) {
         ObjectMapper mapper = new ObjectMapper();
-        Car result = mapper.readValue(json, Car.class);
+        try {
+            Car result = mapper.readValue(json, Car.class);
+        } catch (IOException ex) {
+            System.out.println("Invalid json");
+        }
         return result;
     }
     // END
