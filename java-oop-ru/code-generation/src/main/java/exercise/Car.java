@@ -16,13 +16,23 @@ class Car {
     // BEGIN
     public String serialize() {
         ObjectMapper mapper = new ObjectMapper();
-        String result = writeValueAsString(this);
+        try {
+            String result = writeValueAsString(this);
+        } catch (JsonProcessingException ex) {
+                System.out.print("Invalid json");
+        }
         return result;
     }
 
     public Car unserialize(String json) {
         ObjectMapper mapper = new ObjectMapper();
-        Car result = mapper.readValue(json, Car.class);
+        try {
+            Car result = mapper.readValue(json, Car.class);
+        } catch (IOException ||
+                JsonParseException ||
+                JsonMappingException) {
+            System.out.print("");
+        }
         return result;
     }
     // END
