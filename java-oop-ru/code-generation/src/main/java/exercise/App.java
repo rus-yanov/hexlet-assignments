@@ -21,12 +21,14 @@ class App {
 
     public static Car extract(Path path) {
         String json;
+        Car result;
         try {
             json = Files.readString(path);
-            return Car.unserialize(json);
+            result = Car.unserialize(json);
         } catch (IOException ex) {
             System.out.print("Invalid Path");
         }
+        return result;
     }
 }
 // END
