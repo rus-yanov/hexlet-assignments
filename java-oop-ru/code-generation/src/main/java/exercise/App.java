@@ -14,7 +14,7 @@ class App {
             String serializedCar = car.serialize();
             Files.writeString(path, serializedCar,
                     StandardOpenOption.APPEND);
-        } catch (IOException | JsonProcessingException ex) {
+        } catch (Exception ex) {
             System.out.print(ex.getMessage());
         }
     }
