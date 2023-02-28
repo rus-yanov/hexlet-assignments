@@ -9,9 +9,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.IOException;
 
 class App {
-    public static void save(Path path, Car car) throws Exception {
-        String serializedCar = car.serialize();
-        Files.writeString(path, serializedCar,
+    public static void save(Path path, Car car) throws IOException {
+        Files.writeString(path, car.serialize(),
                     StandardOpenOption.APPEND);
     }
 
