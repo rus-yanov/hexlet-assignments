@@ -27,7 +27,7 @@ class App {
         catch (IOException ex) {
             System.out.print("Invalid Path");
         }
-        return unserialize(json);
+        return App.unserialize(json);
     }
 }
 // END
