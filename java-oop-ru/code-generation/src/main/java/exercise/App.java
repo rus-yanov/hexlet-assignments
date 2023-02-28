@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 
 // BEGIN
+import java.io.IOException;
+
 class App {
     public static void save(Path path, Car car){
         String serializedCar = car.serialize();
