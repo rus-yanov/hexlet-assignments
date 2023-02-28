@@ -28,9 +28,9 @@ class Car {
         ObjectMapper mapper = new ObjectMapper();
         try {
             Car result = mapper.readValue(json, Car.class);
-        } catch (IOException ||
-                JsonParseException ||
-                JsonMappingException) {
+        } catch (IOException ex1 ||
+                JsonParseException ex2 ||
+                JsonMappingException ex3) {
             System.out.print("");
         }
         return result;
