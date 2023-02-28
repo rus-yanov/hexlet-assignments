@@ -12,7 +12,7 @@ class App {
         String serializedCar = car.serialize();
         try {
             Files.writeString(path, serializedCar,
-                    StandardCharsets.UTF_8);
+                    StandardOpenOption.APPEND);
         }
         catch (IOException ex) {
             System.out.print("Invalid Path");
@@ -20,8 +20,9 @@ class App {
     }
 
     public static Car extract(Path path) {
+        String json;
         try {
-            String json = Files.readString(path);
+            json = Files.readString(path);
         }
         catch (IOException ex) {
             System.out.print("Invalid Path");
