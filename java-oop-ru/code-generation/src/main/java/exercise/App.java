@@ -10,12 +10,12 @@ import java.io.IOException;
 
 class App {
     public static void save(Path path, Car car) {
-        String serializedCar = car.serialize();
         try {
+            String serializedCar = car.serialize();
             Files.writeString(path, serializedCar,
                     StandardOpenOption.APPEND);
         } catch (IOException | JsonProcessingException ex) {
-            System.out.print("Invalid Path");
+            System.out.print(ex.getMessage());
         }
     }
 
@@ -23,10 +23,10 @@ class App {
         String json;
         try {
             json = Files.readString(path);
+            return Car.unserialize(json);
         } catch (IOException ex) {
             System.out.print("Invalid Path");
         }
-        return Car.unserialize(json);
     }
 }
 // END
