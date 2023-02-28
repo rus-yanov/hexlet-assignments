@@ -16,7 +16,7 @@ class Car {
     // BEGIN
     public String serialize() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        String result = writeValueAsString(this);
+        String result = mapper.writeValueAsString(this);
         return result;
     }
 
