@@ -20,14 +20,13 @@ class App {
     }
 
     public static Car extract(Path path) {
-        String json;
         try {
-            json = Files.readString(path);
+            String json = Files.readString(path);
         }
         catch (IOException ex) {
             System.out.print("Invalid Path");
         }
-        return App.unserialize(json);
+        return Car.unserialize(json);
     }
 }
 // END
