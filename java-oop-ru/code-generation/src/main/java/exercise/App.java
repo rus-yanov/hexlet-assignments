@@ -13,7 +13,7 @@ class App {
         try {
             Files.writeString(path, serializedCar,
                     StandardOpenOption.APPEND);
-        } catch (IOException ex || JsonProcessingException ex1) {
+        } catch (IOException | JsonProcessingException ex) {
             System.out.print("Invalid Path");
         }
     }
