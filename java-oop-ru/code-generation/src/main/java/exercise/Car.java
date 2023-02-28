@@ -14,23 +14,15 @@ class Car {
     User owner;
 
     // BEGIN
-    public String serialize() {
+    public String serialize() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            String result = writeValueAsString(this);
-        } catch (JsonProcessingException ex) {
-                System.out.print("Invalid json");
-        }
+        String result = writeValueAsString(this);
         return result;
     }
 
-    public static Car unserialize(String json) {
+    public static Car unserialize(String json) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            Car result = mapper.readValue(json, Car.class);
-        } catch (IOException ex) {
-            System.out.println("Invalid json");
-        }
+        Car result = mapper.readValue(json, Car.class);
         return result;
     }
     // END
