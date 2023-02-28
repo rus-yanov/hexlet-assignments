@@ -8,13 +8,12 @@ import java.nio.file.StandardOpenOption;
 import java.io.IOException;
 
 class App {
-    public static void save(Path path, Car car){
+    public static void save(Path path, Car car) {
         String serializedCar = car.serialize();
         try {
             Files.writeString(path, serializedCar,
                     StandardOpenOption.APPEND);
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             System.out.print("Invalid Path");
         }
     }
@@ -22,8 +21,7 @@ class App {
     public static Car extract(Path path) {
         try {
             String json = Files.readString(path);
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             System.out.print("Invalid Path");
         }
         return Car.unserialize(json);
