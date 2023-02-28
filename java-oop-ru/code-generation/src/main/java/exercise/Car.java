@@ -4,6 +4,9 @@ import lombok.Value;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 // BEGIN
+import com.fasterxml.jackson.core.JsonProcessingException;
+import java.io.IOException;
+
 @Value
 // END
 class Car {
@@ -14,25 +17,15 @@ class Car {
     User owner;
 
     // BEGIN
-    public String serialize() {
+    public String serialize() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        String result;
-        try {
-            result = mapper.writeValueAsString(this);
-        } catch (JsonProcessingException ex) {
-            System.out.println(ex.getMessage());
-        }
+        String result = mapper.writeValueAsString(this);
         return result;
     }
 
-    public static Car unserialize(String json) {
+    public static Car unserialize(String json) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        Car result;
-        try {
-            result =  mapper.readValue(json, Car.class);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+        Car result = mapper.readValue(json, Car.class);
         return result;
     }
     // END
