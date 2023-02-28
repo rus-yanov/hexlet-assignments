@@ -9,25 +9,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.IOException;
 
 class App {
-    public static void save(Path path, Car car) {
-        try {
-            String serializedCar = car.serialize();
-            Files.writeString(path, serializedCar,
+    public static void save(Path path, Car car) throws Exception {
+        String serializedCar = car.serialize();
+        Files.writeString(path, serializedCar,
                     StandardOpenOption.APPEND);
-        } catch (Exception ex) {
-            System.out.print(ex.getMessage());
-        }
     }
 
-    public static Car extract(Path path) {
-        String json;
-        Car result = new Car();
-        try {
-            json = Files.readString(path);
-            result = Car.unserialize(json);
-        } catch (IOException ex) {
-            System.out.print("Invalid Path");
-        }
+    public static Car extract(Path path) throws IOException {
+        String json = Files.readString(path);
+        Car result = Car.unserialize(json);
         return result;
     }
 }
