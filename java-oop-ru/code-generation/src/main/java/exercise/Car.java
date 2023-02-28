@@ -24,15 +24,9 @@ class Car {
         return result;
     }
 
-    public Car unserialize(String json) {
+    public Car unserialize(String json) throws IOException{
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            Car result = mapper.readValue(json, Car.class);
-        } catch (IOException ex1 ||
-                JsonParseException ex2 ||
-                JsonMappingException ex3) {
-            System.out.print("");
-        }
+        Car result = mapper.readValue(json, Car.class);
         return result;
     }
     // END
