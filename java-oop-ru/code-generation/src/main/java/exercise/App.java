@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 
 // BEGIN
-import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.IOException;
 
 class App {
