@@ -24,7 +24,7 @@ public class CompaniesServlet extends HttpServlet {
         String param = request.getParameter("search");
         String result = "";
 
-        if (param == "" || !reqStr.contains("search")) {
+        if (param == "" || reqStr == null || !reqStr.contains("search")) {
             companies.forEach(out::println);
         } else {
            result = companies.stream()
