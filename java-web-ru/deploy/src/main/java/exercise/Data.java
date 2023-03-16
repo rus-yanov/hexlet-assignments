@@ -17,7 +17,6 @@ public class Data {
             String company = faker.company().name() + " " + faker.company().suffix();
             companies.add(company);
         }
-
         return companies;
     }
 }

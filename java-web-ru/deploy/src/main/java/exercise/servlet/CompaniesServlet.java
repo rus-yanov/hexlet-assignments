@@ -17,7 +17,6 @@ public class CompaniesServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)
                 throws IOException, ServletException {
-
         // BEGIN
         List<String> companies = getCompanies();
         PrintWriter out = response.getWriter();
