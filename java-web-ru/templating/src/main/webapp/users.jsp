@@ -12,12 +12,14 @@
             crossorigin="anonymous">
     </head>
     <body>
-        <c:forEach var="user" items="${users}">
-            <tr>
-            <td>${user.get("id")}</td>
-            <td><a href='/users/show?id=${user.get("id")}'>${user.get("firstName")}</a></td>
-            </tr>
-        </c:forEach>
+        <table>
+            <c:forEach var="user" items="${users}">
+                <tr>
+                <td>${user.get("id")}</td>
+                <td><a href='/users/show?id=${user.get("id")}'>${user.get("lastName")}</a></td>
+                </tr>
+            </c:forEach>
+        </table>
     </body>
 </html>
 <!-- END -->
