@@ -61,7 +61,7 @@ public class SessionServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Map<String, String> user = users.findByEmail(email);
 
-        if (user != null || password.equals("password")) {
+        if (user != null && password.equals("password")) {
             session.setAttribute("userId", user.get("id"));
             session.setAttribute("flash", "Вы успешно вошли");
             response.sendRedirect("/");
