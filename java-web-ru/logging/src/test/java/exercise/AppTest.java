@@ -255,7 +255,7 @@ class AppTest {
         String content = EntityUtils.toString(entity);
         assertThat(content).contains("Ivan");
         assertThat(content).contains("ivan@mail.ru");
-
+    }
     // END
 
     @AfterAll
