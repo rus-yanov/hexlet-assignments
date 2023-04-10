@@ -16,6 +16,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import exercise.TemplateEngineUtil;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -71,11 +72,11 @@ public class ArticlesServlet extends HttpServlet {
         String query = "SELECT id, title, body FROM articles LIMIT ?";
 
         int pages;
-        String page = request.getParameter("page"):
+        String page = request.getParameter("page");
         if (page == null || page.equals("0")) {
             pages = 1;
-        } else if {
-            Intger.parseInt(page);
+        } else {
+            pages = Integer.parseInt(page);
         }
 
         try {
@@ -84,7 +85,7 @@ public class ArticlesServlet extends HttpServlet {
             PreparedStatement statement = connection.prepareStatement(query);
             // Указываем номер позиции в запросе (номер начинается с 1) и значение, которое будет подставлено
             statement.setInt(1, 10);
-            statement.setInt(2, numberPage * 10 - 10);
+            statement.setInt(2, pages * 10 - 10);
             // Выполняем запрос
             // Результат выполнения представлен объектом ResultSet
             ResultSet rs = statement.executeQuery();
@@ -119,7 +120,7 @@ public class ArticlesServlet extends HttpServlet {
         Connection connection = (Connection) context.getAttribute("dbConnection");
         // BEGIN
         String id = getId(request);
-        String query = "SELECT id, title, body FROM articles WHERE id=" + id;
+        String query = "SELECT title, body FROM articles WHERE id=" + id;
 
         String title = null;
         String body = null;
