@@ -68,9 +68,6 @@ public class ArticlesServlet extends HttpServlet {
         ServletContext context = request.getServletContext();
         Connection connection = (Connection) context.getAttribute("dbConnection");
         // BEGIN
-        List<Map<String, String>> articles = new ArrayList<>();
-        String query = "SELECT id, title, body FROM articles ORDER BY id LIMIT ? OFFSET ?";
-
         int pages;
         String page = request.getParameter("page");
         if (page == null || page.equals("0")) {
@@ -78,13 +75,17 @@ public class ArticlesServlet extends HttpServlet {
         } else {
             pages = Integer.parseInt(page);
         }
+        request.setAttribute("pages", pages);
+        
+        List<Map<String, String>> articles = new ArrayList<>();
+        String query = "SELECT id, title, body FROM articles ORDER BY id LIMIT ? OFFSET ?";
 
         try {
             // Используем PreparedStatement
             // Он позволяет подставить в запрос значения вместо знака ?
             PreparedStatement statement = connection.prepareStatement(query);
             // Указываем номер позиции в запросе (номер начинается с 1) и значение, которое будет подставлено
-            statement.setInt(1, 10);
+            statement.setInt(1,10);
             statement.setInt(2, pages * 10 - 10);
             // Выполняем запрос
             // Результат выполнения представлен объектом ResultSet
@@ -97,9 +98,10 @@ public class ArticlesServlet extends HttpServlet {
                                 "id", rs.getString("id"),
                                 "title", rs.getString("title"),
                                 "body", rs.getString("body")
-                        )
-                );
+                        ));
             }
+            rs.close();
+            statement.close();
 
         } catch (SQLException e) {
             // Если произошла ошибка, устанавливаем код ответа 500
