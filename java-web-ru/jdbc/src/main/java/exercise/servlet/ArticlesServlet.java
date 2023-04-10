@@ -69,7 +69,7 @@ public class ArticlesServlet extends HttpServlet {
         Connection connection = (Connection) context.getAttribute("dbConnection");
         // BEGIN
         List<Map<String, String>> articles = new ArrayList<>();
-        String query = "SELECT id, title, body FROM articles LIMIT ?";
+        String query = "SELECT id, title, body FROM articles ORDER BY id LIMIT ? OFFSET ?";
 
         int pages;
         String page = request.getParameter("page");
