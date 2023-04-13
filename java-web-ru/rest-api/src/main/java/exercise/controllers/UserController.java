@@ -58,13 +58,6 @@ public class UserController implements CrudHandler {
         new QUser()
                 .id.equalTo(Long.parseLong(id))
                 .delete();
-
-        List<User> users = new QUser()
-                .orderBy()
-                .id.asc()
-                .findList();
-        String json = DB.json().toJson(users);
-        ctx.json(json);
         // END
     };
 }
