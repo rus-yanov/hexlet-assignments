@@ -27,13 +27,13 @@ public class PeopleController {
     // BEGIN
     @GetMapping(path = "")
     public List getList() {
-        String query = "SELECT * FROM people";
+        String query = "SELECT * FROM person";
         return jdbc.queryForList(query);
     }
 
     @GetMapping(path = "/{id}")
     public Map getPerson(@PathVariable String id) {
-        String query = "SELECT * FROM people WHERE id = ?";
+        String query = "SELECT * FROM person WHERE id = ?";
         return jdbc.queryForMap(query, id);
     }
     // END
