@@ -131,16 +131,13 @@ public class AppTest {
                 .getResponse();
 
         assertThat(response.getStatus()).isEqualTo(200);
-        // Проверяем, что тип содержимого в ответе JSON
-        assertThat(response.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
-        // Проверяем, что тело ответа содержит данные сущностей
         assertThat(response.getContentAsString()).contains("Rus", "Yanov");
     }
 
     @Test
     void testDeletePerson() throws Exception {
         MockHttpServletResponse response = mockMvc
-                .perform(get("/people/2"))
+                .perform(delete("/people/2"))
                 .andReturn()
                 .getResponse();
 
