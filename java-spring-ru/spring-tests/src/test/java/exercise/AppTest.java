@@ -131,11 +131,13 @@ public class AppTest {
                 .getResponse();
 
         MockHttpServletResponse response2 = mockMvc
-                .perform(get("/people/3"))
+                .perform(get("/people"))
                 .andReturn()
                 .getResponse();
         assertThat(response2.getStatus()).isEqualTo(200);
+        assertThat(response2.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
         assertThat(response2.getContentAsString()).contains("Rus", "Yanov");
+        assertThat(response2.getContentAsString()).doesNotContain("Jassica", "Simpson");
     }
 
     @Test
@@ -148,12 +150,10 @@ public class AppTest {
         assertThat(response1.getStatus()).isEqualTo(200);
 
         MockHttpServletResponse response2 = mockMvc
-                .perform(get("/people/2"))
+                .perform(get("/people"))
                 .andReturn()
                 .getResponse();
-        // Проверяем, что тип содержимого в ответе JSON
-        assertThat(response2.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
-        // Проверяем, что тело ответа содержит данные сущностей
+
         assertThat(response2.getContentAsString()).doesNotContain("Jack", "Doe");
     }
     // END
