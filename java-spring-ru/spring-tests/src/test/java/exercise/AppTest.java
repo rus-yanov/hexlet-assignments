@@ -121,7 +121,7 @@ public class AppTest {
 
     @Test
     void testUpdatePerson() throws Exception {
-        MockHttpServletResponse response = mockMvc
+        MockHttpServletResponse response1 = mockMvc
                 .perform(
                         patch("/people/3")
                                 .contentType(MediaType.APPLICATION_JSON)
@@ -130,22 +130,31 @@ public class AppTest {
                 .andReturn()
                 .getResponse();
 
-        assertThat(response.getStatus()).isEqualTo(200);
-        assertThat(response.getContentAsString()).contains("Rus", "Yanov");
+        MockHttpServletResponse response2 = mockMvc
+                .perform(get("/people/3"))
+                .andReturn()
+                .getResponse();
+        assertThat(response2.getStatus()).isEqualTo(200);
+        assertThat(response2.getContentAsString()).contains("Rus", "Yanov");
     }
 
     @Test
     void testDeletePerson() throws Exception {
-        MockHttpServletResponse response = mockMvc
+        MockHttpServletResponse response1 = mockMvc
                 .perform(delete("/people/2"))
                 .andReturn()
                 .getResponse();
 
-        assertThat(response.getStatus()).isEqualTo(200);
+        assertThat(response1.getStatus()).isEqualTo(200);
+
+        MockHttpServletResponse response2 = mockMvc
+                .perform(get("/people/2"))
+                .andReturn()
+                .getResponse();
         // Проверяем, что тип содержимого в ответе JSON
-        assertThat(response.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
+        assertThat(response2.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
         // Проверяем, что тело ответа содержит данные сущностей
-        assertThat(response.getContentAsString()).doesNotContain("Jack", "Doe");
+        assertThat(response2.getContentAsString()).doesNotContain("Jack", "Doe");
     }
     // END
 }
