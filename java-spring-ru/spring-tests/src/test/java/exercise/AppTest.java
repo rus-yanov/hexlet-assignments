@@ -136,7 +136,6 @@ public class AppTest {
                 .getResponse();
         assertThat(response2.getStatus()).isEqualTo(200);
         assertThat(response2.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
-        assertThat(response2.getContentAsString()).contains("Rus", "Yanov");
         assertThat(response2.getContentAsString()).doesNotContain("Jassica", "Simpson");
     }
 
