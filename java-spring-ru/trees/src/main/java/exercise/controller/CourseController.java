@@ -31,20 +31,19 @@ public class CourseController {
     }
 
     // BEGIN
-    @GetMapping(path = "/{id}/previous/")
-    public Iterable<Course> getPreviousCourse(@PathVariable long id) {
-
+    @GetMapping(path = "/{id}/previous")
+    public Iterable<Course> getPreviousCourses(@PathVariable long id) {
+        final String dot = "\\.";
         Course course = courseRepository.findById(id);
         String path = course.getPath();
-
-        if (path == null) {
-            return new ArrayList<>();
+        if (path != null) {
+            List<Long> previousCoursesIds =  Arrays.stream(path.split(dot))
+                    .map(Long::parseLong)
+                    .toList();
+            return courseRepository.findAllById(previousCoursesIds);
         }
 
-        List<Long> idList = Arrays.stream(path.split("\\."))
-                .map(Long::parseLong)
-                .toList();
-        return courseRepository.findAllById(idList);
+        return new ArrayList<>();
     }
     // END
 
