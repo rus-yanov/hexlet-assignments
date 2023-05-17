@@ -30,8 +30,7 @@ public class CommentController {
     // BEGIN
     @GetMapping(path = "/{postId}/comments")
     public Iterable<Comment> getPostsComments(@PathVariable long postId) {
-        return commentRepository.findAllByPostId(postId)
-                .orElseThrow(() -> new ResourceNotFoundException("Post" + postId + "not found"));
+        return commentRepository.findAllByPostId(postId);
     }
 
     @GetMapping(path = "/{postId}/comments/{@commentId}")
