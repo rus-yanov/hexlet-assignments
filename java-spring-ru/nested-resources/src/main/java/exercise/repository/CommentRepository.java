@@ -12,6 +12,6 @@ public interface CommentRepository extends CrudRepository<Comment, Long> {
 
     Iterable <Comment> findAllByPostId(long postId);
 
-    Optional<Comment> findByCommentIdAndPostId(long commentId, long postId);
+    Optional<Comment> findByIdAndPostId(long commentId, long postId);
     // END
 }
