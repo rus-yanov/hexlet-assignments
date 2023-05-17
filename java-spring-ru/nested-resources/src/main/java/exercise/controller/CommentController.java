@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/posts")
@@ -33,35 +35,32 @@ public class CommentController {
         return commentRepository.findAllByPostId(postId);
     }
 
-    @GetMapping(path = "/{postId}/comments/{@commentId}")
+    @GetMapping(path = "/{postId}/comments/{commentId}")
     public Comment getComment(@PathVariable long postId, @PathVariable long commentId) {
         return commentRepository.findByIdAndPostId(commentId, postId)
                 .orElseThrow(() -> new ResourceNotFoundException("Comment" + commentId + "not found"));
     }
 
-    @PostMapping(path="{postId}/comments")
+    @PostMapping(path = "{postId}/comments")
     public Iterable<Comment> createComment(@RequestBody Comment comment, @PathVariable long postId) {
         comment.setPost(postRepository.findById(postId).get());
         commentRepository.save(comment);
         return commentRepository.findAllByPostId(postId);
     }
 
-    @PatchMapping(path = "/{postId}/comments/{@commentId}")
+    @PatchMapping(path = "/{postId}/comments/{commentId}")
     public Comment updateComment(@PathVariable long postId,
                                  @PathVariable long commentId,
-                                 @RequestBody Comment comment) {
+                                 @RequestBody Comment newComment) {
 
-        if (!postRepository.existsById(postId) ||
-                !commentRepository.existsById(commentId)) {
-            throw new ResourceNotFoundException("Comment not found");
-        }
+        Comment comment = commentRepository.findByIdAndPostId(commentId, postId)
+                .orElseThrow(() -> new ResourceNotFoundException("Comment not found"));
 
-        Comment oldComment = commentRepository.findByIdAndPostId(commentId, postId);
-        oldComment.setContent(comment.getContent());
+        comment.setContent(newComment.getContent());
         return commentRepository.save(comment);
     }
 
-    @DeleteMapping(path = "/{postId}/comments/{@commentId}")
+    @DeleteMapping(path = "/{postId}/comments/{commentId}")
     public void deleteComment(@PathVariable long postId, @PathVariable long commentId) {
 
         Comment comment = commentRepository.findByIdAndPostId(commentId, postId)
