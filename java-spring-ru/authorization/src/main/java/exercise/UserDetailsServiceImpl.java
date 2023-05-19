@@ -27,10 +27,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         // Получаем роль пользователя
         // String userRole = ...
-
+        String userRole = user.getRole().name();
         // Создаём список полномочий
         List<SimpleGrantedAuthority> authorities = List.of(
-                new SimpleGrantedAuthority("user")
+                new SimpleGrantedAuthority(userRole)
         );
 
         // Создаём новый объект org.springframework.security.core.userdetails.User
