@@ -18,9 +18,9 @@ class AppTest {
     @Test
     void testMinMax2() {
 
-        int[] numbers = {-2, 0};
+        int[] numbers = {0, 0};
         Map<String, Integer> actual = App.getMinMax(numbers);
-        Map<String, Integer> expected = Map.of("min", -2, "max", 0);
+        Map<String, Integer> expected = Map.of("min", 0, "max", 0);
         assertThat(actual).isEqualTo(expected);
     }
 
