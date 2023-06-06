@@ -12,12 +12,15 @@ class App {
         MaxThread maxThread = new MaxThread(numbers);
         MinThread minThread = new MinThread(numbers);
         maxThread.start();
-        maxThread.start();
+        minThread.start();
         LOGGER.info("Thread " + maxThread.getName() + " started");
         LOGGER.info("Thread " + minThread.getName() + " started");
-        Map<String, Integer> result = new HashMap<>();
-        result.put("max", maxThread.getMax());
-        result.put("min", minThread.getMin());
+
+        Map result = Map.of(
+                "min", minThread.getMin(),
+                "max", maxThread.getMax()
+        );
+
         LOGGER.info("Thread " + maxThread.getName() + " finished");
         LOGGER.info("Thread " + minThread.getName() + " finished");
         return result;

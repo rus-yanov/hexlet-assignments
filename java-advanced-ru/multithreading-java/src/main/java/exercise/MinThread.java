@@ -15,7 +15,7 @@ public class MinThread extends Thread {
 
     @Override
     public void run() {
-        int max = Arrays.stream(this.array).min().getAsInt();
+        int min = Arrays.stream(this.array).min().getAsInt();
         setMin(min);
     }
 
