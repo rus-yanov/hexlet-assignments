@@ -17,8 +17,8 @@ class App {
         LOGGER.info("Thread " + minThread.getName() + " started");
 
         Map result = Map.of(
-                "min", minThread.getMin(),
-                "max", maxThread.getMax()
+                "max", maxThread.getMax(),
+                "min", minThread.getMin()
         );
 
         LOGGER.info("Thread " + maxThread.getName() + " finished");
