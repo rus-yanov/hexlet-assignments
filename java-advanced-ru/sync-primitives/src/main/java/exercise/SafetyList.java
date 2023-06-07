@@ -9,7 +9,7 @@ class SafetyList {
         this.size = 0;
     }
 
-    public hexlet assignment submit void add(int num) {
+    public synchronized void add(int num) {
         if (size == array.length) {
             int[] oldArray = this.array;
             array = new int[size * 2];
